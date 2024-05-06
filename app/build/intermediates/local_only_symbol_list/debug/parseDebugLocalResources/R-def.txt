@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color gray
+color pink
+color white
+drawable baseline_article_24
+drawable baseline_settings_24
+drawable cross2
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id bottomNavigationView
+id frame_layout
+id home
+id main
+id settings
+id view
+layout activity_main
+layout fragment_home
+layout fragment_settings
+menu bottom_nav
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string hello_blank_fragment
+style Base.Theme.DNote
+style Theme.App.Starting
+style Theme.DNote
+xml backup_rules
+xml data_extraction_rules
