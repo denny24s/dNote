@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Color Option 1 -->
+    <TextView
+        android:id="@+id/colorRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 1"
+        android:textColor="@color/colorRed"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 2 -->
+    <TextView
+        android:id="@+id/colorGreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 2"
+        android:textColor="@color/colorGreen"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 3 -->
+    <TextView
+        android:id="@+id/colorBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 3"
+        android:textColor="@color/colorBlue"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 4 -->
+    <TextView
+        android:id="@+id/colorYellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 4"
+        android:textColor="@color/colorYellow"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 5 -->
+    <TextView
+        android:id="@+id/colorCyan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 5"
+        android:textColor="@color/colorCyan"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 6 -->
+    <TextView
+        android:id="@+id/colorMagenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 6"
+        android:textColor="@color/colorMagenta"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 7 -->
+    <TextView
+        android:id="@+id/colorGray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 7"
+        android:textColor="@color/colorGray"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 8 -->
+    <TextView
+        android:id="@+id/colorDarkGray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 8"
+        android:textColor="@color/colorDarkGray"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+    <!-- Color Option 9 -->
+    <TextView
+        android:id="@+id/colorLightGray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Color 9"
+        android:textColor="@color/colorLightGray"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onColorOptionClicked"/>
+
+</LinearLayout>

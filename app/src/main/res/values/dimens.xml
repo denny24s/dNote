@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="color_picker_square_size">48dp</dimen>
+    <!-- Define the margin for the Diary folder -->
+    <dimen name="diary_folder_margin_top">16dp</dimen>
+    <!-- Define the default margin for other folders -->
+    <dimen name="default_folder_margin_top">4dp</dimen>
+</resources>
