@@ -1,12 +1,12 @@
 package com.example.dnote
 
 import android.content.Context
+import android.content.Intent
 import android.view.*
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,7 +16,7 @@ class FolderAdapter(
     private val onRenameClickListener: (String) -> Unit,
     private val onChangeColorClickListener: (String) -> Unit,
     private val onDeleteClickListener: (String) -> Unit,
-    private val onFolderClickListener: (String) -> Unit // New parameter
+    private val onFolderClickListener: (String) -> Unit // Added this parameter
 ) : RecyclerView.Adapter<FolderAdapter.FolderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FolderViewHolder {
@@ -28,9 +28,6 @@ class FolderAdapter(
     override fun onBindViewHolder(holder: FolderViewHolder, position: Int) {
         val folderName = folders[position]
         holder.bind(folderName)
-        holder.itemView.setOnClickListener {
-            onFolderClickListener.invoke(folderName)
-        }
     }
 
     override fun getItemCount(): Int = folders.size
@@ -47,10 +44,12 @@ class FolderAdapter(
             } else {
                 itemView.background = ContextCompat.getDrawable(context, R.drawable.rounded_background)
             }
+
             // Bind click listener
             itemView.setOnClickListener {
                 onFolderClickListener.invoke(folderName)
             }
+
             // Bind long click listener
             itemView.setOnLongClickListener {
                 // Show context menu
@@ -73,8 +72,6 @@ class FolderAdapter(
             popup.show()
         }
     }
-
-
 
     fun addFolder(folderName: String) {
         if (folderName.isNotEmpty()) {
@@ -108,22 +105,4 @@ class FolderAdapter(
     fun getFolders(): MutableList<String> {
         return folders
     }
-
-
-
-    private fun showOptionsDialog(folderName: String) {
-        val options = arrayOf("Rename", "Change color", "Delete")
-        AlertDialog.Builder(context)
-            .setTitle("Options")
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> if (folderName != "Diary") onRenameClickListener.invoke(folderName)
-                    1 -> onChangeColorClickListener.invoke(folderName)
-                    2 -> if (folderName != "Diary") onDeleteClickListener.invoke(folderName)
-                }
-            }
-            .show()
-    }
-
-
 }

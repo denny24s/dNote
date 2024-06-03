@@ -1,5 +1,6 @@
 package com.example.dnote
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
@@ -17,7 +18,6 @@ class Home : Fragment() {
     private lateinit var folderAdapter: FolderAdapter
     private lateinit var folderRecyclerView: RecyclerView
     private lateinit var addFolderButton: FloatingActionButton
-    private lateinit var diaryFolderLayout: LinearLayout
     private var alertDialog: AlertDialog? = null
 
     override fun onCreateView(
@@ -27,23 +27,18 @@ class Home : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         folderRecyclerView = view.findViewById(R.id.folderRecyclerView)
         addFolderButton = view.findViewById(R.id.addFolderButton)
-        diaryFolderLayout = view.findViewById(R.id.diaryFolderLayout)
         setupRecyclerView()
         setupAddFolderButton()
-        setupDiaryFolder()
         return view
     }
 
     private fun setupRecyclerView() {
-        val savedFolders = FolderManager.getFolders(requireContext()).toMutableList()
-        // Remove "Diary" from the saved folders list
-        savedFolders.remove("Diary")
-
+        val savedFolders = FolderManager.getFolders(requireContext())
         folderAdapter = FolderAdapter(requireContext(), savedFolders,
             { folderName -> showRenameFolderDialog(folderName) },
             { folderName -> showColorPickerDialog(folderName) },
             { folderName -> showDeleteConfirmationDialog(folderName) },
-            { folderName -> onFolderClicked(folderName) })
+            { folderName -> openFolderDetailActivity(folderName) }) // Pass the new click listener
         folderRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = folderAdapter
@@ -53,16 +48,6 @@ class Home : Fragment() {
     private fun setupAddFolderButton() {
         addFolderButton.setOnClickListener {
             showAddFolderDialog()
-        }
-    }
-
-    private fun setupDiaryFolder() {
-        diaryFolderLayout.setOnClickListener {
-            onFolderClicked("Diary")
-        }
-        diaryFolderLayout.setOnLongClickListener {
-            Toast.makeText(requireContext(), "Diary folder cannot be renamed or deleted.", Toast.LENGTH_SHORT).show()
-            true
         }
     }
 
@@ -151,11 +136,16 @@ class Home : Fragment() {
     }
 
     private fun showColorPickerDialog(folderName: String) {
+        // Show color picker dialog logic here
         Toast.makeText(requireContext(), "Color picker for $folderName not implemented yet.", Toast.LENGTH_SHORT).show()
     }
 
-    private fun onFolderClicked(folderName: String) {
-        Toast.makeText(requireContext(), "Folder clicked: $folderName", Toast.LENGTH_SHORT).show()
+    private fun openFolderDetailActivity(folderName: String) {
+        val intent = Intent(requireContext(), FolderDetailActivity::class.java)
+        intent.putExtra("folder_name", folderName)
+        startActivity(intent)
     }
-}
 
+
+
+}
