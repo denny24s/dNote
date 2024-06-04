@@ -4,9 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.LinearLayout
+import android.widget.ImageButton
 import android.widget.PopupMenu
-import android.widget.SearchView
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -22,7 +22,6 @@ class FolderDetailActivity : AppCompatActivity(), NotesAdapter.NotesClickListene
     lateinit var adapter: NotesAdapter
     lateinit var selectedNote: Note
     private lateinit var folderName: String
-
 
     private val updateNote = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -42,9 +41,7 @@ class FolderDetailActivity : AppCompatActivity(), NotesAdapter.NotesClickListene
 
         initUi()
 
-        viewModel = ViewModelProvider(
-            this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NoteViewModel::class.java)
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
 
         viewModel.allNotes.observe(this) { list ->
             list?.let {
@@ -58,9 +55,15 @@ class FolderDetailActivity : AppCompatActivity(), NotesAdapter.NotesClickListene
 
     private fun initUi() {
         binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false) // Use LinearLayoutManager
+        binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         adapter = NotesAdapter(this, this)
         binding.recyclerView.adapter = adapter
+
+        findViewById<ImageButton>(R.id.backButton).setOnClickListener {
+            onBackPressed()
+        }
+
+        findViewById<TextView>(R.id.folderNameTextView).text = folderName
 
         val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -73,28 +76,15 @@ class FolderDetailActivity : AppCompatActivity(), NotesAdapter.NotesClickListene
 
         binding.fbAddNote.setOnClickListener {
             val intent = Intent(this, AddNote::class.java)
-            intent.putExtra("folder_name", folderName) // Pass folder name to AddNote activity
+            intent.putExtra("folder_name", folderName)
             getContent.launch(intent)
         }
-
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText != null) {
-                    adapter.filterList(newText)
-                }
-                return true
-            }
-        })
     }
 
     override fun onItemClicked(note: Note) {
         val intent = Intent(this@FolderDetailActivity, AddNote::class.java)
         intent.putExtra("current_note", note)
-        intent.putExtra("folder_name", folderName) // Pass folder name to AddNote activity
+        intent.putExtra("folder_name", folderName)
         updateNote.launch(intent)
     }
 

@@ -32,6 +32,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <EditText
+                android:id="@+id/search_src_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false" /> <!-- Disable input -->
+
         </SearchView>
 
         <LinearLayout

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DNote"
         tools:targetApi="31">
+        <activity
+            android:name=".NoteDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchNotesActivity"
+            android:exported="false" />
         <activity android:name=".AddNote" />
         <activity
             android:name=".FolderDetailActivity"
