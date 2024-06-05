@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment"
-        android:textSize="26dp"
-        android:gravity="center"/>
-
-    <!-- fragment_home.xml -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,7 +19,6 @@
             android:iconifiedByDefault="false"
             android:queryHint="Search notes..."
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -40,38 +30,19 @@
 
         </SearchView>
 
-        <LinearLayout
-            android:id="@+id/diaryFolderLayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/emptyMessageTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/rounded_diary_background"
-            android:clickable="true"
-            android:focusable="true"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Press '+' to create a folder"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView">
-
-            <ImageView
-                android:id="@+id/diaryFolderIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/baseline_arrow_drop_down_24" />
-
-            <TextView
-                android:id="@+id/diaryFolderName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Diary"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/folderRecyclerView"
@@ -80,7 +51,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/diaryFolderLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/searchView"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addFolderButton"
@@ -93,6 +64,5 @@
             android:background="@color/gray"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </FrameLayout>

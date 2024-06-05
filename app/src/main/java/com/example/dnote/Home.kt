@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.EditText
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ class Home : Fragment() {
     private lateinit var folderAdapter: FolderAdapter
     private lateinit var folderRecyclerView: RecyclerView
     private lateinit var addFolderButton: FloatingActionButton
+    private lateinit var emptyMessageTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,7 @@ class Home : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         folderRecyclerView = view.findViewById(R.id.folderRecyclerView)
         addFolderButton = view.findViewById(R.id.addFolderButton)
+        emptyMessageTextView = view.findViewById(R.id.emptyMessageTextView)
         val searchView: SearchView = view.findViewById(R.id.searchView)
 
         searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
@@ -36,6 +39,8 @@ class Home : Fragment() {
 
         setupRecyclerView()
         setupAddFolderButton()
+        updateEmptyMessageVisibility()
+
         return view
     }
 
@@ -66,6 +71,7 @@ class Home : Fragment() {
     private fun addFolder(folderName: String) {
         folderAdapter.addFolder(folderName)
         FolderManager.saveFolders(requireContext(), folderAdapter.getFolders())
+        updateEmptyMessageVisibility()
     }
 
     private fun showAddFolderDialog() {
@@ -106,6 +112,15 @@ class Home : Fragment() {
     private fun deleteFolder(folderName: String) {
         folderAdapter.deleteFolder(folderName)
         FolderManager.saveFolders(requireContext(), folderAdapter.getFolders())
+        updateEmptyMessageVisibility()
+    }
+
+    private fun updateEmptyMessageVisibility() {
+        if (folderAdapter.itemCount == 0) {
+            emptyMessageTextView.visibility = View.VISIBLE
+        } else {
+            emptyMessageTextView.visibility = View.GONE
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -114,10 +129,6 @@ class Home : Fragment() {
     }
 
     private fun showRenameFolderDialog(folderName: String) {
-        if (folderName == "Diary") {
-            Toast.makeText(requireContext(), "Diary folder cannot be renamed.", Toast.LENGTH_SHORT).show()
-            return
-        }
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Rename Folder")
 
