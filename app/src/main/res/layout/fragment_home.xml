@@ -34,7 +34,7 @@
             android:id="@+id/emptyMessageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Press '+' to create a folder"
+            android:text="@string/press_to_create_a_folder"
             android:textSize="18sp"
             android:gravity="center"
             android:visibility="gone"

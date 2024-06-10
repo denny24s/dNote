@@ -6,6 +6,16 @@
     <color name="pink">#DD9797</color>
 
 
+    <color name="primaryColor">#FFFFFF</color>
+    <color name="primaryDarkColor">#000000</color>
+    <color name="accentColor">#FF4081</color>
+    <color name="backgroundColor">#F5F5F5</color>
+
+
+    <color name="primaryColorN">#121212</color> <!-- Darker gray for primary color -->
+    <color name="primaryDarkColorN">#1D1D1D</color> <!-- Darker gray for primary dark color -->
+    <color name="accentColorN">#FF4081</color>
+    <color name="backgroundColorN">#303030</color> <!-- Darker gray for background -->
 
 
     <color name="colorBeige">#F5F5DC</color>

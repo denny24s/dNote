@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DNote</string>
+    <string name="settings">Налаштування</string>
+    <string name="dark_mode">Темний режим</string>
+    <string name="language">Мова</string>
+    <string name="choose_language">Оберіть мову</string>
+    <string name="english">Англійська</string>
+    <string name="ukrainian">Українська</string>
+    <string name="press_to_create_a_folder">Нажміть \'+\' щоб створити папку</string>
+    <!-- Add other strings here -->
+</resources>
