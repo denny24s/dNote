@@ -1,12 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DNote</string>
+    <string name="app_name">dNote</string>
     <string name="settings">Налаштування</string>
     <string name="dark_mode">Темний режим</string>
     <string name="language">Мова</string>
     <string name="choose_language">Оберіть мову</string>
-    <string name="english">Англійська</string>
+    <string name="english">English</string>
     <string name="ukrainian">Українська</string>
+    <string name="russian">Русский</string>
     <string name="press_to_create_a_folder">Нажміть \'+\' щоб створити папку</string>
-    <!-- Add other strings here -->
+
+
+    <string name="notifications">Сповіщення</string>
+    <string name="time_of_notification">Час сповіщення</string>
+    <string name="share">Поділитися</string>
+    <string name="rate">Оцінити</string>
+    <string name="about">Про Додаток</string>
+
+
+    <string name="pincode">PIN Code</string>
+    <string name="change_pincode">Змінити PIN Code</string>
+    <string name="enter_pin">Введіть PIN</string>
+    <string name="confirm_pin">Підтвердіть PIN</string>
+    <string name="set_pin">Установіть PIN</string>
+    <string name="enter_current_pin">Введіть поточний PIN-код</string>
+    <string name="set_new_pin">Встановити новий PIN-код</string>
+    <string name="confirm_new_pin">Підтвердьте новий PIN-код</string>
+    <string name="submit">Підтвердити</string>
+    <string name="pins_do_not_match">PIN-коди не збігаються</string>
+    <string name="pin_set">PIN встановлено успішно</string>
+    <string name="pin_changed">PIN-код успішно змінено</string>
+    <string name="incorrect_pin">Неправильний PIN-код</string>
+    <string name="pin_disabled">PIN-код вимкнено</string>
+    <string name="disable_pin_confirmation">Ви впевнені, що бажаєте вимкнути PIN-код?</string>
+    <string name="confirmation">Підтвердження</string>
+
+    <string name="yes">Так</string>
+    <string name="no">Ні</string>
+
+    <string name="title">Назва</string>
+    <string name="start_typing">Почніть друкувати</string>
+
+    <string name="search_notes">Пошук нотаток...</string>
+
+    <string name="rename">Перейменувати</string>
+    <string name="change_color">Змінити колір</string>
+    <string name="delete">Видалити</string>
+    <string name="delete_note">Видалити</string>
+
+    <string name="enter_folder_name">Введіть назву папки</string>
+    <string name="please_enter_a_folder_name">Введіть назву папки</string>
+    <string name="cancel">Скасувати</string>
+    <string name="delete_folder">Видалити папку</string>
+    <string name="do_you_really_want_to_delete_the_folder">Ви дійсно хочете видалити папку \'%1$s\'?</string>
+    <string name="rename_folder">Перейменувати папку</string>
+    <string name="please_enter_a_new_folder_name">Введіть нову назву папки</string>
+
+    <string name="enter_at_least_one_letter">Введіть хоча б одну літеру</string>
+
 </resources>

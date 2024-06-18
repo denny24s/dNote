@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="App Name: DNote"
+            android:text="App Name: dNote"
             android:textSize="18sp"
             android:paddingBottom="8dp" />
 
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DNote is a simple note-taking app designed to help you manage your notes efficiently."
+            android:text="dNote is a simple note-taking app designed to help you manage your notes efficiently."
             android:textSize="16sp" />
     </LinearLayout>
 

@@ -22,7 +22,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-
             <ImageView
                 android:id="@+id/img_check"
                 android:layout_width="wrap_content"
@@ -40,10 +39,7 @@
                 app:srcCompat="@drawable/baseline_arrow_back_24" />
         </RelativeLayout>
 
-
     </androidx.appcompat.widget.Toolbar>
-
-
 
     <EditText
         android:id="@+id/et_title"
@@ -54,13 +50,12 @@
         android:layout_marginEnd="16dp"
         android:background="@null"
         android:ems="10"
-        android:hint="Title"
+        android:hint="@string/title"
         android:inputType="textPersonName"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
 
     <EditText
         android:id="@+id/et_note"
@@ -70,9 +65,10 @@
         android:background="@null"
         android:ems="10"
         android:gravity="top"
-        android:hint="Start Typing"
+        android:hint="@string/start_typing"
         android:inputType="textMultiLine"
-        android:lineSpacingMultiplier="1.8"
+        android:lineSpacingExtra="4dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/et_title"
         app:layout_constraintStart_toStartOf="@+id/et_title"

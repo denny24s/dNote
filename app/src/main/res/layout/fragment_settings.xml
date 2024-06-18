@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="16dp"
                 android:clickable="true"
                 android:layout_marginTop="16dp">
 
@@ -69,15 +69,18 @@
                 android:focusable="true">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/baseline_blur_circular_24" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:src="@drawable/language_24dp_fill1_wght200_grad0_opsz24" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:paddingStart="16dp"
                     android:text="@string/language" />
+
             </LinearLayout>
 
             <!-- Notifications -->
@@ -86,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -106,6 +109,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/llNotificationTime"
@@ -144,12 +149,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_fingerprint_24" />
+                    android:src="@drawable/lock_24dp_fill1_wght200_grad0_opsz24" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -160,19 +165,21 @@
                     android:paddingStart="16dp" />
 
                 <Switch
-                    android:id="@+id/switchPincode"
+                    android:id="@+id/pinCodeSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
             <!-- Change Pincode -->
             <LinearLayout
+                android:id="@+id/changePincodeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
                 android:clickable="true"
+                android:visibility="gone"
                 android:onClick="onChangePincodeClicked">
 
                 <ImageView
@@ -198,52 +205,53 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider" />
 
-            <!-- Share -->
             <LinearLayout
+                android:id="@+id/llShare"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="16dp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
-                android:onClick="onShareClicked">
+                android:focusable="true">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/outline_device_hub_24" />
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/share_24dp_fill1_wght200_grad0_opsz24" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Share"
-                    android:textSize="18sp"
-                    android:paddingStart="16dp" />
+                    android:layout_marginStart="16dp"
+                    android:text="@string/share"
+                    android:textAppearance="?attr/textAppearanceListItem" />
             </LinearLayout>
 
             <!-- Rate -->
             <LinearLayout
+                android:id="@+id/llRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="16dp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
-                android:onClick="onRateClicked">
+                android:focusable="true">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_auto_awesome_24" />
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/star_24dp_fill1_wght200_grad0_opsz24" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Rate"
-                    android:textSize="18sp"
-                    android:paddingStart="16dp" />
+                    android:layout_marginStart="16dp"
+                    android:text="@string/rate"
+                    android:textAppearance="?attr/textAppearanceListItem" />
             </LinearLayout>
 
             <!-- About -->
@@ -252,23 +260,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="16dp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
-                android:onClick="onAboutClicked">
+                android:focusable="true">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/baseline_create_24" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="About"
-                    android:textSize="18sp"
-                    android:paddingStart="16dp" />
+                    android:layout_marginStart="16dp"
+                    android:text="@string/about"
+                    android:textAppearance="?attr/textAppearanceListItem" />
             </LinearLayout>
 
         </LinearLayout>

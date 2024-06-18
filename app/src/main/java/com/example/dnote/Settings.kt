@@ -15,10 +15,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class Settings : Fragment() {
 
@@ -26,6 +27,8 @@ class Settings : Fragment() {
     private lateinit var switchNotifications: Switch
     private lateinit var textNotificationTime: TextView
     private lateinit var llNotificationTime: View
+    private lateinit var pinCodeSwitch: Switch
+    private lateinit var changePincodeLayout: View
     private lateinit var sharedPreferences: SharedPreferences
     private var notificationTime: Calendar = Calendar.getInstance()
 
@@ -40,6 +43,8 @@ class Settings : Fragment() {
         switchNotifications = view.findViewById(R.id.switchNotifications)
         textNotificationTime = view.findViewById(R.id.textNotificationTime)
         llNotificationTime = view.findViewById(R.id.llNotificationTime)
+        pinCodeSwitch = view.findViewById(R.id.pinCodeSwitch)
+        changePincodeLayout = view.findViewById(R.id.changePincodeLayout)
 
         // Load dark mode preference
         val isDarkMode = sharedPreferences.getBoolean("dark_mode", false)
@@ -78,6 +83,23 @@ class Settings : Fragment() {
         // Set up language preference
         view.findViewById<View>(R.id.languagePreference).setOnClickListener {
             showLanguageSelectionDialog()
+        }
+
+        // Set up PIN code preferences
+        setupPinCodeOptions(view)
+
+        // Set up Share and Rate click listeners
+        view.findViewById<View>(R.id.llShare).setOnClickListener {
+            showNotImplementedMessage()
+        }
+        view.findViewById<View>(R.id.llRate).setOnClickListener {
+            showNotImplementedMessage()
+        }
+
+        // Set up About click listener
+        view.findViewById<View>(R.id.llAbout).setOnClickListener {
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
         }
 
         return view
@@ -164,11 +186,7 @@ class Settings : Fragment() {
     }
 
     private fun showLanguageSelectionDialog() {
-        val languages = arrayOf(
-            getString(R.string.english),
-            getString(R.string.ukrainian),
-            getString(R.string.russian)
-        )
+        val languages = arrayOf(getString(R.string.english), getString(R.string.ukrainian), getString(R.string.russian))
         AlertDialog.Builder(requireContext())
             .setTitle(R.string.choose_language)
             .setItems(languages) { _, which ->
@@ -200,5 +218,55 @@ class Settings : Fragment() {
     private fun refreshFragment() {
         parentFragmentManager.beginTransaction().detach(this).commitNow()
         parentFragmentManager.beginTransaction().attach(this).commitNow()
+    }
+
+    private fun setupPinCodeOptions(view: View) {
+        val isPinCodeSet = sharedPreferences.getString("pin_code", null) != null
+        pinCodeSwitch.isChecked = isPinCodeSet
+
+        pinCodeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                if (isPinCodeSet) {
+                    PinCodeActivity.verifyPin(requireContext())
+                } else {
+                    PinCodeActivity.createPin(requireContext())
+                }
+            } else {
+                if (isPinCodeSet) {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle(R.string.confirmation)
+                        .setMessage(R.string.disable_pin_confirmation)
+                        .setPositiveButton(R.string.yes) { _, _ ->
+                            sharedPreferences.edit().remove("pin_code").apply()
+                            Toast.makeText(requireContext(), R.string.pin_disabled, Toast.LENGTH_SHORT).show()
+                            changePincodeLayout.visibility = View.GONE
+                        }
+                        .setNegativeButton(R.string.no) { dialog, _ ->
+                            dialog.dismiss()
+                            pinCodeSwitch.isChecked = true
+                        }
+                        .create()
+                        .show()
+                } else {
+                    changePincodeLayout.visibility = View.GONE
+                }
+            }
+        }
+
+        changePincodeLayout.setOnClickListener {
+            PinCodeActivity.changePin(requireContext())
+        }
+
+        if (isPinCodeSet) {
+            changePincodeLayout.visibility = View.VISIBLE
+        }
+    }
+
+    fun onChangePincodeClicked(view: View) {
+        PinCodeActivity.changePin(requireContext())
+    }
+
+    private fun showNotImplementedMessage() {
+        Toast.makeText(requireContext(), "Not implemented yet...", Toast.LENGTH_SHORT).show()
     }
 }

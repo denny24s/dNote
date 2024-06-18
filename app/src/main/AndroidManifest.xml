@@ -4,8 +4,6 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,12 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DNote"
         tools:targetApi="31">
+        <activity
+            android:name=".PinCodeActivity"
+            android:exported="false" />
+
         <receiver android:name=".NotificationReceiver" />
-        <receiver android:enabled="true" android:exported="true" android:name="androidx.legacy.content.WakefulBroadcastReceiver">
+        <receiver
+            android:name="androidx.legacy.content.WakefulBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".AboutActivity"
             android:exported="false" />

@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.example.dnote.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Check if PIN code is set
+        val pinCode = sharedPreferences.getString("pin_code", null)
+        if (pinCode != null) {
+            PinCodeActivity.verifyPin(this)
+        }
 
         // Setup bottom navigation view
         setupBottomNavigationView()

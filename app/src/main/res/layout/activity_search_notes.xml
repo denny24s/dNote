@@ -32,7 +32,7 @@
             android:id="@+id/searchEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Enter at least one letter"
+            android:hint="@string/enter_at_least_one_letter"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:background="@android:color/white"

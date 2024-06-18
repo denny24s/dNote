@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.random.Random
 
 class NotesAdapter(private val context: Context, val listener: NotesClickListener) :
     RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
@@ -53,10 +52,9 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
         holder.date.text = currentNote.date
         holder.date.isSelected = true
 
+        // Set a fixed gray color for the notes
         holder.notes_layout.setCardBackgroundColor(
-            holder.itemView.resources.getColor(
-                randomColor(), null
-            )
+            holder.itemView.resources.getColor(R.color.colorGray, null)
         )
 
         holder.notes_layout.setOnClickListener {
@@ -67,20 +65,6 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
             listener.onLongItemClicked(NotesList[holder.adapterPosition], holder.notes_layout)
             true
         }
-    }
-
-    fun randomColor(): Int {
-        val list = arrayListOf(
-            R.color.colorGray,
-            R.color.colorBlue,
-            R.color.colorCyan,
-            R.color.colorBeige,
-            R.color.colorGreen,
-            R.color.colorMagenta
-        )
-        val seed = System.currentTimeMillis().toInt()
-        val randomIndex = Random(seed).nextInt(list.size)
-        return list[randomIndex]
     }
 
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

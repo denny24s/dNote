@@ -7,7 +7,7 @@
 
     <item android:title=""
         android:id="@+id/home"
-        android:icon="@drawable/baseline_article_24"/>
+        android:icon="@drawable/home_24dp_fill1_wght200_grad0_opsz24"/>
 
 
 </menu>

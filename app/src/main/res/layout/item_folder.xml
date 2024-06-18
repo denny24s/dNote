@@ -13,7 +13,7 @@
         android:id="@+id/folderIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_arrow_drop_down_24"/>
+        android:src="@drawable/folder_24dp_fill1_wght200_grad0_opsz24"/>
 
     <TextView
         android:text="Diary"

@@ -76,7 +76,7 @@ class Home : Fragment() {
 
     private fun showAddFolderDialog() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Enter folder name")
+        builder.setTitle(getString(R.string.enter_folder_name))
 
         val input = EditText(requireContext())
         builder.setView(input)
@@ -86,12 +86,13 @@ class Home : Fragment() {
             if (folderName.isNotEmpty()) {
                 addFolder(folderName)
             } else {
-                Toast.makeText(requireContext(), "Please enter a folder name", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),
+                    getString(R.string.please_enter_a_folder_name), Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
         }
 
-        builder.setNegativeButton("Cancel") { dialog, _ ->
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
             dialog.cancel()
         }
 
@@ -100,12 +101,12 @@ class Home : Fragment() {
 
     private fun showDeleteConfirmationDialog(folderName: String) {
         AlertDialog.Builder(requireContext())
-            .setTitle("Delete Folder")
-            .setMessage("Do you really want to delete the folder '$folderName'?")
-            .setPositiveButton("Delete") { _, _ ->
+            .setTitle(getString(R.string.delete_folder))
+            .setMessage(getString(R.string.do_you_really_want_to_delete_the_folder, folderName))
+            .setPositiveButton(R.string.delete) { _, _ ->
                 deleteFolder(folderName)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.cancel, null)
             .show()
     }
 
@@ -130,7 +131,7 @@ class Home : Fragment() {
 
     private fun showRenameFolderDialog(folderName: String) {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Rename Folder")
+        builder.setTitle(getString(R.string.rename_folder))
 
         val input = EditText(requireContext())
         input.setText(folderName)
@@ -141,12 +142,13 @@ class Home : Fragment() {
             if (newFolderName.isNotEmpty()) {
                 renameFolder(folderName, newFolderName)
             } else {
-                Toast.makeText(requireContext(), "Please enter a new folder name", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),
+                    getString(R.string.please_enter_a_new_folder_name), Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
         }
 
-        builder.setNegativeButton("Cancel") { dialog, _ ->
+        builder.setNegativeButton(R.string.cancel) { dialog, _ ->
             dialog.cancel()
         }
 

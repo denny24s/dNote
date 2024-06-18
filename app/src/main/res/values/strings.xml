@@ -5,20 +5,58 @@
     <string name="language">Language</string>
     <string name="notifications">Notifications</string>
     <string name="time_of_notification">Time of notification</string>
-    <string name="change_pincode">Change pincode</string>
-    <string name="pincode">Pincode</string>
+
     <string name="share">Share</string>
     <string name="rate">Rate</string>
     <string name="about">About</string>
+
     <string name="choose_language">Choose the language</string>
     <string name="english">English</string>
     <string name="ukrainian">Українська</string>
     <string name="russian">Русский</string>
     <string name="press_to_create_a_folder">Press \'+\' to create a folder</string>
-    <!-- Add other strings here -->
 
 
+    <string name="pincode">PIN Code</string>
+    <string name="change_pincode">Change PIN Code</string>
+    <string name="enter_pin">Enter PIN</string>
+    <string name="confirm_pin">Confirm PIN</string>
+    <string name="set_pin">Set PIN</string>
+    <string name="enter_current_pin">Enter Current PIN</string>
+    <string name="set_new_pin">Set New PIN</string>
+    <string name="confirm_new_pin">Confirm New PIN</string>
+    <string name="submit">Submit</string>
+    <string name="pins_do_not_match">PINs do not match</string>
+    <string name="pin_set">PIN set successfully</string>
+    <string name="pin_changed">PIN changed successfully</string>
+    <string name="incorrect_pin">Incorrect PIN</string>
+    <string name="pin_disabled">PIN disabled</string>
+    <string name="disable_pin_confirmation">Are you sure you want to disable the PIN?</string>
+    <string name="confirmation">Confirmation</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="title">Title</string>
+    <string name="start_typing">Start Typing</string>
+
+    <string name="search_notes">Search notes...</string>
+
+    <string name="rename">Rename</string>
+    <string name="change_color">Change color</string>
+    <string name="delete">Delete</string>
+    <string name="delete_note">Delete</string>
+
+
+    <string name="enter_folder_name">Enter folder name</string>
+    <string name="please_enter_a_folder_name">Please enter a folder name</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_folder">Delete Folder</string>
+    <string name="do_you_really_want_to_delete_the_folder">Do you really want to delete the folder \'%1$s\'?</string>
+    <string name="rename_folder">Rename Folder</string>
+    <string name="please_enter_a_new_folder_name">Please enter a new folder name</string>
+
+    <string name="enter_at_least_one_letter">Enter at least one letter</string>
 
 
 </resources>
