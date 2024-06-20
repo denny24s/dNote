@@ -96,18 +96,25 @@ class Home : Fragment() {
             dialog.cancel()
         }
 
-        builder.show()
+        val dialog = builder.create()
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextAppearance(R.style.DialogButtonText)
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextAppearance(R.style.DialogButtonText)
     }
 
     private fun showDeleteConfirmationDialog(folderName: String) {
-        AlertDialog.Builder(requireContext())
+        val builder = AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.delete_folder))
             .setMessage(getString(R.string.do_you_really_want_to_delete_the_folder, folderName))
             .setPositiveButton(R.string.delete) { _, _ ->
                 deleteFolder(folderName)
             }
             .setNegativeButton(R.string.cancel, null)
-            .show()
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextAppearance(R.style.DialogButtonText)
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextAppearance(R.style.DialogButtonText)
     }
 
     private fun deleteFolder(folderName: String) {
@@ -152,7 +159,10 @@ class Home : Fragment() {
             dialog.cancel()
         }
 
-        builder.show()
+        val dialog = builder.create()
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextAppearance(R.style.DialogButtonText)
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextAppearance(R.style.DialogButtonText)
     }
 
     private fun renameFolder(oldName: String, newName: String) {

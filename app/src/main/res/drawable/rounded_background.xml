@@ -3,5 +3,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <corners android:radius="16dp" /> <!-- Adjust the radius to change the roundness of corners -->
-    <solid android:color="@color/colorBeige" /> <!-- Use the same beige color as the background -->
+    <solid android:color="@color/folderColor" /> <!-- Use the same beige color as the background -->
 </shape>

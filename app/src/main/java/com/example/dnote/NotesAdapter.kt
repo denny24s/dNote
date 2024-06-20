@@ -54,7 +54,7 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
 
         // Set a fixed gray color for the notes
         holder.notes_layout.setCardBackgroundColor(
-            holder.itemView.resources.getColor(R.color.colorGray, null)
+            holder.itemView.resources.getColor(R.color.noteColor, null)
         )
 
         holder.notes_layout.setOnClickListener {

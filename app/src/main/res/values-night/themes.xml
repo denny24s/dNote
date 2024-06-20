@@ -2,10 +2,19 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.DNote" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorAccent">@color/accentColor</item>
-        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="colorPrimary">@color/darkPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/darkPrimaryDarkColor</item>
+        <item name="colorAccent">@color/darkAccentColor</item>
+        <item name="android:colorBackground">@color/darkBackgroundColor</item>
+        <item name="colorOnPrimary">@color/darkOnPrimaryColor</item>
+        <item name="colorOnSecondary">@color/darkOnSecondaryColor</item>
+        <item name="android:textColor">@color/darkOnPrimaryColor</item>
+        <item name="android:colorButtonNormal">@color/darkPrimaryColor</item>
+        <item name="android:colorControlActivated">@color/darkAccentColor</item>
+        <item name="android:colorControlHighlight">@color/darkAccentColor</item>
+        <item name="android:colorControlNormal">@color/darkOnSecondaryColor</item>
+        <item name="android:navigationBarColor">@color/darkSurfaceColor</item>
+        <item name="android:statusBarColor">@color/darkSurfaceColor</item>
     </style>
 
     <!-- Custom TimePickerDialog style -->
@@ -13,4 +22,11 @@
         <item name="materialTimePickerStyle">@style/Widget.MaterialComponents.TimePicker</item>
         <item name="android:buttonBarStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog</item>
     </style>
+
+    <!-- Custom dialog button style -->
+    <style name="DialogButtonText" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@color/buttonTextColor</item>
+    </style>
+
 </resources>
+

@@ -13,7 +13,7 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="@string/settings"
-        app:titleTextColor="@android:color/black"
+        app:titleTextColor="@color/toolbarTextColor"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView

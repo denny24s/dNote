@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme colors -->
+    <color name="iconColor">#FFFFFF</color> <!-- White for dark mode -->
+
+    <color name="buttonTextColor">#FFFFFF</color>
+
+    <color name="toolbarColor">#221C27</color>
+    <color name="toolbarTextColor">#FFFFFF</color>
+
+    <color name="iconArrowBackColor">#FFFFFF</color>
+
+    <color name="folderColor">#A7355C</color>
+    <color name="noteColor">#CA557D</color>
+
+    <!-- ... other color definitions ... -->
+</resources>

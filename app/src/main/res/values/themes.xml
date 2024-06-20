@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/accentColor</item>
         <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="WindowAnimationFadeInOut">
@@ -19,5 +20,9 @@
     <style name="CustomTimePickerDialog" parent="Theme.MaterialComponents.Dialog.Alert">
         <item name="materialTimePickerStyle">@style/Widget.MaterialComponents.TimePicker</item>
         <item name="android:buttonBarStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog</item>
+    </style>
+
+    <style name="DialogButtonText" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@color/buttonTextColor</item>
     </style>
 </resources>

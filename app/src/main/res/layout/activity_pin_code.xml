@@ -25,6 +25,8 @@
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/accentColor"
         android:text="@string/submit"
+        android:textColor="@color/buttonTextColor"
         android:layout_marginTop="16dp"/>
 </LinearLayout>
