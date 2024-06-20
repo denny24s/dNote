@@ -6,5 +6,8 @@
 
 
 App Name: dNote
+
+
 Version: 1.0
+
 dNote is a simple note-taking app designed to help you manage your notes efficiently.
